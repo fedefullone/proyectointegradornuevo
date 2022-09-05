@@ -1,15 +1,14 @@
-import React from 'react'
+import React from 'react';
+import './footer.css';
 
 function Footer() {
     return (
 
-<footer class="main-footer">
+<footer className="main-footer">
         <p>
            Federico Fullone | Santiago Herrera 
         </p>
-        <div class="LogoTMDB">
-            
-        </div>
+        
     </footer>      
     )
 }
