@@ -14,14 +14,14 @@ class Peliculas extends Component {
     }
 
     componentDidMount(){
-    //Buscamos los datos de las peliculas mas populares
+    //Traigo los datos de las peliculas mas populares
     fetch(urlPeliculasPopulares)
             .then( res => res.json())
             .then( data => this.setState({
                 peliculasPopulares: data.results,
             }))
             .catch()
-    //Buscamos los datos de las peliculas Top
+    //Traigo los datos de las peliculas en cartelera
     fetch(urlPeliculasCartelera)
             .then( res => res.json())
             .then( data => this.setState({
@@ -34,7 +34,7 @@ class Peliculas extends Component {
     render(){
         return(
             <React.Fragment>
-                
+       
             </React.Fragment>
         )
     }

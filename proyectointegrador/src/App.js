@@ -1,19 +1,21 @@
-import react from 'react';
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import React from 'react';
+import {Route, Switch } from 'react-router-dom';
+import Home from './screens/Home/Home';
+
 
 function App() {
   return (
     <React.Fragment>
-    <div>
-      <h1>Hola</h1>
       <Header/>
-      <Footer/>
-    </div>
+      <main>
     <Switch>
           <Route exact path="/" component={Home} />
-        </Switch>
+        </Switch>  
+        </main>
+      <Footer/>
+
     </React.Fragment>
   );
 }
