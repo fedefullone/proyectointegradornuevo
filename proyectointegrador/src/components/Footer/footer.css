@@ -3,8 +3,11 @@
     font-weight: bold;
     color: whitesmoke;
     display: flex;
-    height: 30vh;
+    height: 15vh;
     justify-content: center;
     align-items: center;
     border-top: 2px solid gray;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+
   }
