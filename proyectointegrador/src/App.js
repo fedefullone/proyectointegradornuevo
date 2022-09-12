@@ -16,8 +16,8 @@ function App() {
       <main>
     <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/populares" exact={true} component={Populares} />
-          <Route exact path="/cartelera" exact={true} component={Cartelera} />
+          <Route exact path="/populares"  component={Populares} />
+          <Route exact path="/cartelera"  component={Cartelera} />
 
 
         </Switch>  
