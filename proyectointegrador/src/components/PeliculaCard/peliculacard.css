@@ -6,6 +6,16 @@
     display: show
 }
 
+.titulo-pelicula{
+    font-family: 'Oswald', sans-serif;
+color: white;
+font-size: 20px;
+}
+
+.addFav{
+    font-family: 'Oswald', sans-serif;
+color: white;
+}
 /*.{
     display: block;
     text-align: center;

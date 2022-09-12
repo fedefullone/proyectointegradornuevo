@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PeliculaCard from '../PeliculaCard/PeliculaCard'
-import Pelicula from '../Pelicula/Pelicula'
-import { Link } from 'react-router-dom';
+
 
 let urlPeliculasCartelera = "https://api.themoviedb.org/3/movie/now_playing?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=1";
 
@@ -10,8 +9,9 @@ class PeliculasCartelera extends Component {
     constructor() {
         super()
         this.state = {
-            peliculasCartelera: []
-
+            peliculasCartelera1: [],
+            peliculasCartelera2: [],
+            pagina: 1, 
         }
     }
 
@@ -22,10 +22,22 @@ class PeliculasCartelera extends Component {
             .then(data => {
                 console.log(data);
                 this.setState({
-                    peliculasCartelera: data.results,
-                })
+                    peliculasCartelera1: data.results,
+                    peliculasCartelera2: data.results,
+                    pagina: 2                })
             }
             )
+    }
+    traerMas(){
+        //Traer la siguiente página
+        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=${this.state.pagina}`)
+            .then( res => res.json())
+            .then( data => this.setState({
+                peliculasCartelera1: data.results.concat(this.state.peliculasCartelera1),
+                peliculasCartelera2: data.results.concat(this.state.peliculasCartelera2),
+                pagina: this.state.pagina + 1
+            }))
+            .catch()
     }
 
     
@@ -34,12 +46,14 @@ class PeliculasCartelera extends Component {
            
         return(
             <React.Fragment>
-                <section className="sectionHome">
-               
+            <button onClick={()=>this.traerMas()}> Traer más </button>
                 <h1  className="titulosHome">Películas en cartelera</h1>
 
+                <section className="sectionHome">
+               
+
                     {this.state.peliculasCartelera === [] ? <h3>Cargando</h3> : 
-                    this.state.peliculasCartelera.map((unaPelicula, idx)=> <PeliculaCard key={idx} unaPelicula={unaPelicula}  />)
+                    this.state.peliculasCartelera1.map((unaPelicula, idx)=> <PeliculaCard key={idx} unaPelicula={unaPelicula}  />)
                     }
                 
 </section>

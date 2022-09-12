@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PeliculaCard from '../PeliculaCard/PeliculaCard'
 import { Link } from 'react-router-dom';
-import './/pelicula.css';
+import './pelicula.css';
 
 
 
@@ -46,20 +46,26 @@ class Pelicula extends Component {
            
         return(
             <React.Fragment>
-                <section className="sectionHome">
                 <h1  className="titulosHome">Películas populares</h1>
+                <Link className='link' to='/populares'> Ver todas las peliculas populares</Link>
+
+                <section className="sectionHome">
 
                     {this.state.peliculasPopulares === [] ? <h3>Cargando</h3> : 
                     this.state.peliculasPopulares.map((unaPelicula, idx)=> <PeliculaCard key={idx} unaPelicula={unaPelicula}  />)
                     }
-                <h2><Link to='/populares'> Ver todas las peliculas populares</Link></h2>
+                </section>
+            
                 <h1  className="titulosHome">Películas en cartelera</h1>
+                <Link className='link' to='/cartelera'> Ver todas las peliculas cartelera</Link>
+
+                <section className="sectionHome">
+
 
                     {this.state.peliculasCartelera === [] ? <h3>Cargando</h3> : 
                     this.state.peliculasCartelera.map((unaPelicula, idx)=> <PeliculaCard key={idx} unaPelicula={unaPelicula}  />)
                     }
-                <h2><Link to='/cartelera'> Ver todas las peliculas cartelera</Link></h2>
-</section>
+                </section>
 
 
 

@@ -25,16 +25,19 @@ class PeliculaCard extends Component {
         console.log(this.props)
         return(
             <React.Fragment>
-                <Link to={`/detalle/id/${this.props.unaPelicula.id}`}> {/* ruta detalle */}
-                    <img alt='foto' src={`https://image.tmdb.org/t/p/w342/${this.props.unaPelicula.poster_path}`}   />
-                </Link>
+                <article className='pelicula-Card'>
+
                 
-                <h1> {this.props.unaPelicula.title} </h1>
+                    <Link to={`/detalle/id/${this.props.unaPelicula.id}`}> {/* ruta detalle */}
+                        <img alt='foto' src={`https://image.tmdb.org/t/p/w342/${this.props.unaPelicula.poster_path}`}   />
+                    </Link>
+                    
+                    <h1 className="titulo-pelicula"> {this.props.unaPelicula.title} </h1>
 
-                <p onClick={() => this.verMas()}> {this.state.textDescripcion} </p>
-                <p className={this.state.classDescipcion}>  {this.props.unaPelicula.overview}   </p>
-                <p> Agregar a favoritos </p>
-
+                    <p onClick={() => this.verMas()}> {this.state.textDescripcion} </p>
+                    <p className={this.state.classDescipcion}>  {this.props.unaPelicula.overview}   </p>
+                    <p className='addFav'> Agregar a favoritos </p>
+                </article>
             </React.Fragment>
         )
     }
