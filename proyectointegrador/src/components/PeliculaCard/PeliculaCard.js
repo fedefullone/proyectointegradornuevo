@@ -29,7 +29,7 @@ class PeliculaCard extends Component {
 
                 
                     <Link to={`/detalle/id/${this.props.unaPelicula.id}`}> {/* ruta detalle */}
-                        <img alt='foto' src={`https://image.tmdb.org/t/p/w342/${this.props.unaPelicula.poster_path}`}   />
+                        <img className='foto' alt='foto' src={`https://image.tmdb.org/t/p/w342/${this.props.unaPelicula.poster_path}`}   />
                     </Link>
                     
                     <h1 className="titulo-pelicula"> {this.props.unaPelicula.title} </h1>
