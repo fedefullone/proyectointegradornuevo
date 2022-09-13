@@ -5,6 +5,7 @@ import {Route, Switch } from 'react-router-dom';
 import Home from './screens/Home/Home';
 import Populares from './screens/Populares/Populares';
 import Cartelera from './screens/Cartelera/Cartelera'
+import Detalle from './screens/Detalle/Detalle'
 import './app.css'
 
 
@@ -18,8 +19,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/populares"  component={Populares} />
           <Route exact path="/cartelera"  component={Cartelera} />
-
-
+          <Route path='/detalle/id/:id' component={Detalle}/>
         </Switch>  
         </main>
       <Footer/>

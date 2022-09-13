@@ -1,0 +1,15 @@
+.button1 {
+    background-color: black;
+    color: white;
+    border: 10px solid white; /* Green */
+    font-size: 20px;
+    
+  }
+
+  .boton{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

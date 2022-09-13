@@ -33,9 +33,12 @@ class PeliculaCard extends Component {
                     </Link>
                     
                     <h1 className="titulo-pelicula"> {this.props.unaPelicula.title} </h1>
-
-                    <p onClick={() => this.verMas()}> {this.state.textDescripcion} </p>
-                    <p className={this.state.classDescipcion}>  {this.props.unaPelicula.overview}   </p>
+                    <div className='desc-text'>
+                        <p onClick={() => this.verMas()} className='descripcion'> {this.state.textDescripcion} </p>
+                        <p className={this.state.classDescipcion + ' ' + 'descripcion'}>  {this.props.unaPelicula.overview}   </p>
+                        
+                    </div>
+                    
                     <p className='addFav'> Agregar a favoritos </p>
                 </article>
             </React.Fragment>

@@ -47,8 +47,9 @@ class PeliculasPopulares extends Component {
 
         return (
             <React.Fragment>
-                                <button onClick={()=>this.traerMas()}> Traer más </button>
-                    <h1 className="titulosHome">Películas populares</h1>
+                        <div className='boton'>
+                                <button onClick={()=>this.traerMas()} className='button1'> Traer más </button>
+                    <h1 className="titulosHome">Películas populares</h1></div>
 
                 <section className="sectionHome">
 

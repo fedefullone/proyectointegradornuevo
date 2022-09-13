@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PeliculaCard from '../PeliculaCard/PeliculaCard'
+import './peliculascartelera.css'
 
 
 let urlPeliculasCartelera = "https://api.themoviedb.org/3/movie/now_playing?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=1";
@@ -46,8 +47,9 @@ class PeliculasCartelera extends Component {
            
         return(
             <React.Fragment>
-            <button onClick={()=>this.traerMas()}> Traer más </button>
-                <h1  className="titulosHome">Películas en cartelera</h1>
+                <div className='boton'>
+            <button onClick={()=>this.traerMas()} className="button1"> Traer más </button>
+                <h1  className="titulosHome">Películas en cartelera</h1></div>
 
                 <section className="sectionHome">
                
