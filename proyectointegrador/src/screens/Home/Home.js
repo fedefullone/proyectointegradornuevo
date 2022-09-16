@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './home.css';
 import Pelicula from '../../components/Pelicula/Pelicula';
+import PeliculaCard from '../../components/PeliculaCard/PeliculaCard'
 
 class Home extends Component {
     constructor(props) {
@@ -34,7 +35,7 @@ class Home extends Component {
         }
     }
 
-    render() {
+    render(){
         return (
             this.state.input.length === 0 ?
                 <React.Fragment>
@@ -57,11 +58,14 @@ class Home extends Component {
             <form onSubmit={(event)=> this.evitarSubmit(event)}>
             <input type='text'  onChange={ (event)=> this.guardarCambios(event)} placeholder="Buscar Pelicula" name="usuario" value={this.state.input}  />
             </form>  
+            {this.state.data === 0 ? <h1>Cargando...</h1> : this.state.data.map((unaPelicula, idx)=> <PeliculaCard unaPelicula={unaPelicula} key={unaPelicula.title + idx}   />)}
             
             </main>  
                 </React.Fragment>
-        )
+        
+        )}
     }
-}
+    
+    
 
 export default Home;
