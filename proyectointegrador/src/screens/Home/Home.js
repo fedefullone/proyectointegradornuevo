@@ -38,10 +38,13 @@ class Home extends Component {
         return (
             this.state.input.length === 0 ?
                 <React.Fragment>
-                    <form onSubmit={(event) => this.prevRecarga(event)}>
-                        <input type='text' placeholder='pelicula' onChange={(event) => this.saveChanges(event)} value={this.state.input} />
-                        <input type='submit' value='submit' />
+                    <form onSubmit={(event) => this.evitarSubmit(event)}>
+                        <input type='text' placeholder='Pelicula' onChange={(event) => this.guardarCambios(event)} value={this.state.input} />
+                        <input type='submit' value='Buscar' />
                     </form>
+                    <section class="home">
+             <Pelicula/>
+            </section>
 
                    
 
@@ -50,16 +53,12 @@ class Home extends Component {
                 :
 
                 <React.Fragment>
-                    <form onSubmit={(event) => this.prevRecarga(event)}>
-                        <input type='text' placeholder='pelicula' onChange={(event) => this.saveChanges(event)} value={this.state.input} />
-                        <input type='submit' value='submit' />
-                    </form>
-
-                    {this.state.data === '' ? <h3>Cargando</h3> :
-                        <section className='card-container'>
-                            {this.state.data.map((unaPelicula, idx) => <UnaPeliculaListado key={idx} props={unaPelicula} />)}
-                        </section>
-                    }
+                    <main className='main'> 
+            <form onSubmit={(event)=> this.evitarSubmit(event)}>
+            <input type='text'  onChange={ (event)=> this.guardarCambios(event)} placeholder="Buscar Pelicula" name="usuario" value={this.state.input}  />
+            </form>  
+            
+            </main>  
                 </React.Fragment>
         )
     }

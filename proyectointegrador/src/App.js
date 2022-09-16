@@ -7,6 +7,7 @@ import Populares from './screens/Populares/Populares';
 import Cartelera from './screens/Cartelera/Cartelera'
 import Detalle from './screens/Detalle/Detalle'
 import Error404 from './screens/Error404/Error404';
+import Favoritos from './screens/Favoritos/Favoritos'
 import './app.css'
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/populares"  component={Populares} />
           <Route exact path="/cartelera"  component={Cartelera} />
           <Route path='/detalle/id/:id' component={Detalle}/>
+          <Route path='/favoritos' component={Favoritos}/>
           <Route path="" component={Error404} />
         </Switch>  
         </main>
