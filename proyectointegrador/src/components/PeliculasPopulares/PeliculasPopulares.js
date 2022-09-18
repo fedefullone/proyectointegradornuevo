@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PeliculaCard from '../PeliculaCard/PeliculaCard'
-import { Link } from 'react-router-dom'
+import FormFiltrar from '../FormFiltrar/FormFiltrar'
 
 
 let urlPeliculasPopulares = "https://api.themoviedb.org/3/movie/popular?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=1"
@@ -54,73 +54,33 @@ class PeliculasPopulares extends Component {
             }))
             .catch()
     }
-
-    evitarSubmit(event) {
-        event.preventDefault();
-    };
-    guardarCambios(event) {
-        this.setState({ input: event.target.value });
-        if (event.target.value !== '') {
-            let result = this.state.peliculasPopulares1.filter((unaPelicula) => {
-                return unaPelicula.title.toLowerCase().includes(event.target.value)
-            })
-            console.log(result);
-            this.setState({ data2: result }, () => console.log(this.state.data2))
-        } else {
-            this.setState({ data2: '' })
-        }
-    };
+    filtrarPeliculas(Fil) { 
+        let filtrarPeliculas = this.state.peliculasPopulares1.filter( unaPelicula => unaPelicula.title.toLowerCase().includes(Fil.toLowerCase()))
+        this.setState({
+            peliculasPopulares2: filtrarPeliculas,
+        }, ()=>console.log(this.state))
+    }
 
     render() {
-        let mostrar;
-        if (this.state.peliculasPopulares1 === '') {
-            mostrar = 'Cargando'
-        } else {
-            if (this.state.data2 === '') {
-                mostrar = this.state.peliculasPopulares1
-
-            } else if (this.state.data2.length === 0) {
-                mostrar = 'No se encontraron resultados'
-
-            } else {
-                mostrar = this.state.data2
-            }
-        }
-
         return (
-            this.state.input.length === 0 ?
+            
                 <React.Fragment>
-                    <form onSubmit={(event) => this.evitarSubmit(event)}>
-                        <input type='text' placeholder='Pelicula' onChange={(event) => this.guardarCambios(event)} value={this.state.input} />
-                        <input type='submit' value='Buscar' />
-                    </form>
+                   
+                    <div>
+                    <FormFiltrar filtrarPeliculas={(Fil) => this.filtrarPeliculas(Fil)}></FormFiltrar>
+                    </div>
                     <div className='boton'>
                         <button onClick={() => this.traerMas()} className='button1'> Traer más </button>
                         <h1 className="titulosHome">Películas populares</h1></div>
 
                     <section className="sectionHome">
 
-                        {this.state.peliculasPopulares === [] ? <h3>Cargando</h3> :
-                            this.state.peliculasPopulares1.map((unaPelicula, idx) => <PeliculaCard key={idx} unaPelicula={unaPelicula} />)
+                        {this.state.peliculasPopulares2 === [] ? <h3>Cargando</h3> :
+                            this.state.peliculasPopulares2.map((unaPelicula, idx) => <PeliculaCard key={idx} unaPelicula={unaPelicula} />)
                         }
-
-
-
                     </section>
-
-
-
                 </React.Fragment>
-                :
-                <React.Fragment>
-                    <main className='main'>
-                        <form onSubmit={(event) => this.evitarSubmit(event)}>
-                            <input type='text' onChange={(event) => this.guardarCambios(event)} placeholder="Buscar Pelicula" name="usuario" value={this.state.input} />
-                        </form>
-                        {this.state.peliculasPopulares1 === 0 ? <h1>Cargando...</h1> : this.state.peliculasPopulares1.map((unaPelicula, idx) => <PeliculaCard unaPelicula={unaPelicula} key={unaPelicula.title + idx} />)}
-
-                    </main>
-                </React.Fragment>
+                
         )
     }
 }

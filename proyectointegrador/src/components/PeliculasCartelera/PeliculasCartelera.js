@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PeliculaCard from '../PeliculaCard/PeliculaCard'
-import './peliculascartelera.css'
+import PeliculaCard from '../PeliculaCard/PeliculaCard';
+import './peliculascartelera.css';
+import FormFiltrar from '../FormFiltrar/FormFiltrar'
 
 
 let urlPeliculasCartelera = "https://api.themoviedb.org/3/movie/now_playing?api_key=d7005b857875520a55d00ac604b383c7&language=en-US&page=1";
@@ -40,6 +41,12 @@ class PeliculasCartelera extends Component {
             }))
             .catch()
     }
+    filtrarPeliculas(Fil) { 
+        let filtrarPeliculas = this.state.peliculasCartelera1.filter( unaPelicula => unaPelicula.title.toLowerCase().includes(Fil.toLowerCase()))
+        this.setState({
+            peliculasCartelera2: filtrarPeliculas,
+        }, ()=>console.log(this.state))
+    }
 
     
     render(){
@@ -47,6 +54,9 @@ class PeliculasCartelera extends Component {
            
         return(
             <React.Fragment>
+                 <div>
+                    <FormFiltrar filtrarPeliculas={(Fil) => this.filtrarPeliculas(Fil)}></FormFiltrar>
+                    </div>
                 <div className='boton'>
             <button onClick={()=>this.traerMas()} className="button1"> Traer más </button>
                 <h1  className="titulosHome">Películas en cartelera</h1></div>
@@ -54,8 +64,8 @@ class PeliculasCartelera extends Component {
                 <section className="sectionHome">
                
 
-                    {this.state.peliculasCartelera === [] ? <h3>Cargando</h3> : 
-                    this.state.peliculasCartelera1.map((unaPelicula, idx)=> <PeliculaCard key={idx} unaPelicula={unaPelicula}  />)
+                    {this.state.peliculasCartelera2 === [] ? <h3>Cargando</h3> : 
+                    this.state.peliculasCartelera2.map((unaPelicula, idx)=> <PeliculaCard key={idx} unaPelicula={unaPelicula}  />)
                     }
                 
 </section>
