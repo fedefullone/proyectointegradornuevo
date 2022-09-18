@@ -1,4 +1,20 @@
 .titulosHome{
     font-family: 'Oswald', sans-serif;
-    font-size: 34px;
+    font-size: 40px;
+    color: white;
+    background-color: black;
+    max-width: fit-content;
+    padding: 8px;
+}
+.sectionHome{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.link {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
 }

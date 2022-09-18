@@ -1,0 +1,21 @@
+.articlemovies{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.articlemovies img{
+    width: 300px;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.nombrePeliculas {
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
+    color: white;
+}
+
+.textoDetalle {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+}

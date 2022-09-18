@@ -1,11 +1,11 @@
 import React from 'react';
-import TodasPeliculas from '../../components/TodasPeliculas/TodasPeliculas';
+import PeliculasCartelera from '../../components/PeliculasCartelera/PeliculasCartelera';
 
 
 function Cartelera (){
     return(
         <React.Fragment>
-            <TodasPeliculas pagina={false}   />
+            <PeliculasCartelera  />
         </React.Fragment>
     )
 }

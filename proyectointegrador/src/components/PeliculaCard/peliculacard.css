@@ -6,9 +6,36 @@
     display: show
 }
 
+.titulo-pelicula{
+    font-family: 'Oswald', sans-serif;
+color: white;
+font-size: 20px;
+}
+
+.addFav{
+    font-family: 'Oswald', sans-serif;
+color: white;
+}
 /*.{
     display: block;
     text-align: center;
     justify-content: center;
 }
 */
+.descripcion{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+}
+
+.desc-text{
+    max-width: fit-content;
+    border: white;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.foto {
+    max-width: 300px;
+}

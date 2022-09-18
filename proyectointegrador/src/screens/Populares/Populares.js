@@ -1,11 +1,11 @@
 import React from 'react';
-import TodasPeliculas from '../../components/TodasPeliculas/TodasPeliculas';
-
+import PeliculasPopulares from '../../components/PeliculasPopulares/PeliculasPopulares';
+import PeliculaCard from '../../components/PeliculaCard/PeliculaCard'
 
 function Populares (){
     return(
         <React.Fragment>
-            <TodasPeliculas pagina={true}   />
+            <PeliculasPopulares />
         </React.Fragment>
     )
 }
