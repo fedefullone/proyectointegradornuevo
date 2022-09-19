@@ -15,17 +15,17 @@ class Favoritos extends Component{
 
         if(recuperoStorage !== null){
             favoritos = JSON.parse(recuperoStorage)
-            let peliculas = [];
+            let peliculasFavs = [];
 
-            favoritos.forEach(unIdFavorito =>{
+            favoritos.map(unIdFavorito =>{
                 //pedir por cada id los datos de la pelicula
                 let url = `https://api.themoviedb.org/3/movie/${unIdFavorito}?api_key=d7005b857875520a55d00ac604b383c7&language=en-US`
             fetch(url)
                 .then(res => res.json())
                 .then(data =>{
-                peliculas.push(data)
+                peliculasFavs.push(data)
                 this.setState({
-                peliculas : peliculas
+                peliculas : peliculasFavs
                 })
             })
                 .catch(e => console.log(e))
@@ -33,6 +33,7 @@ class Favoritos extends Component{
             //recorrer el array y pedirle al endpoint por los datos de cada pelicula
         }
     }
+   
     render(){
         return(
             <React.Fragment>
