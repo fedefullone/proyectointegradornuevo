@@ -52,7 +52,7 @@ class Pelicula extends Component {
                 <section className="sectionHome">
 
                     {this.state.peliculasPopulares === [] ? <h3>Cargando</h3> : 
-                    this.state.peliculasPopulares.map((unaPelicula, idx)=> <PeliculaCard key={idx} unaPelicula={unaPelicula}  />)
+                    this.state.peliculasPopulares.map((unaPelicula, idx)=> <PeliculaCard key={unaPelicula.name + idx} unaPelicula={unaPelicula}  />)
                     }
                 </section>
             
@@ -63,7 +63,7 @@ class Pelicula extends Component {
 
 
                     {this.state.peliculasCartelera === [] ? <h3>Cargando</h3> : 
-                    this.state.peliculasCartelera.map((unaPelicula, idx)=> <PeliculaCard key={idx} unaPelicula={unaPelicula}  />)
+                    this.state.peliculasCartelera.map((unaPelicula, idx)=> <PeliculaCard key={unaPelicula.name + idx} unaPelicula={unaPelicula}  />)
                     }
                 </section>
 
